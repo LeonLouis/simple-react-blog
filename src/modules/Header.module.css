@@ -1,0 +1,40 @@
+.header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  height: 10vh;
+  padding: 20px 50px;
+  background-color: #EBD9B4;
+  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+}
+
+.siteTitle a {
+  font-size: 28px;
+  text-decoration: none;
+  color: #000;
+}
+
+.menu ul {
+  display: flex;
+  gap: 20px;
+  justify-content: space-evenly;
+}
+
+.menu li {
+  list-style: none;
+}
+
+.menu li a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #161616;
+  font-size: 16px;
+}
+
+.menu .badge {
+  border-radius: 50px;
+  background-color: #f00;
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 14px;
+}
