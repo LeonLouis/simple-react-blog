@@ -1,0 +1,52 @@
+.newBlogForm {
+  margin-top: 20px;
+  box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1);
+  padding: 20px;
+}
+
+.formWrap {
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.formControl {
+  margin-bottom: 20px;
+}
+
+.formControl * {
+  width: 100%;
+}
+
+.formControl label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.formControl input,
+.formControl textarea {
+  padding: 10px;
+  border-radius: 5px;
+  outline: 0;
+  border: 1px solid #ececec;
+}
+
+.actions {
+  text-align: right;
+}
+
+.cancelBtn {
+  text-decoration: none;
+  color: #000;
+  font-weight: 600;
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+.submitBtn {
+  border: 0;
+  outline: 0;
+  padding: 12px 20px;
+  background-color: #EBD9B4;
+  font-weight: 600;
+  cursor: pointer;
+}

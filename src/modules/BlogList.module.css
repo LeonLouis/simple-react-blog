@@ -1,0 +1,22 @@
+.bloglist {
+  margin: 20px auto 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 50px;
+}
+
+.bloglist li {
+  list-style: none;
+}
+
+@media only screen and (max-width: 1024px) {
+  .bloglist {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .bloglist {
+    grid-template-columns: 1fr;
+  }
+}
