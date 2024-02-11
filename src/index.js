@@ -9,6 +9,7 @@ import Favorites from './pages/Favorites';
 import PageNotFound from './pages/PageNotFound';
 import SingleBlog, { loader as singleBlogLoader } from './pages/SingleBlog';
 import './modules/globals.css';
+import EditBlog, { loader as editBlogLoader, action as editBlogAction } from './pages/EditBlog';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -17,6 +18,7 @@ const router = createBrowserRouter(
       <Route path="new-blog" element={<NewBlog/>} action={newBlogAction}/>
       <Route path="favorites" element={<Favorites/>}/>
       <Route path="/blogs/:id" element={<SingleBlog/>} loader={singleBlogLoader}/>
+      <Route path="/edit-blog/:id" element={<EditBlog/>} loader={editBlogLoader} action={editBlogAction}/>
       <Route path="*" element={<PageNotFound/>} />
     </Route>
   )
