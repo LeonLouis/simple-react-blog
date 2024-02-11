@@ -1,0 +1,17 @@
+.sbpImage {
+  width: 100%;
+  height: 450px;
+  margin-bottom: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.sbpAddress {
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.sbpText {
+  line-height: 24px;
+}
