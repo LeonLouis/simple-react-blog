@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 import { FaEdit, FaHeart, FaRegHeart, FaTrash } from 'react-icons/fa';
 import classes from '../../modules/BlogItem.module.css';
 import FavoritesContext from '../../store/favorites-context';
-import { Link, redirect, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Modal from '../modals/Modals';
 
 
@@ -21,7 +21,8 @@ function BlogItem({blog}) {
         title: blog.title,
         image: blog.image,
         address: blog.address,
-        description: blog.description
+        description: blog.description,
+        favorite: 1
       });
     }
   }
@@ -31,15 +32,14 @@ function BlogItem({blog}) {
   }
 
   async function deleteBlogHandler() {
-    // await fetch(`https://react-app-1ead7-default-rtdb.asia-southeast1.firebasedatabase.app/blogs/${blog.id}.json`, {
-    //   method: 'DELETE',
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   }
-    // });
+    await fetch(`https://react-app-1ead7-default-rtdb.asia-southeast1.firebasedatabase.app/blogs/${blog.id}.json`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
     setIsShowModal(!isShowModal);
-    // return redirect('/');
-    navigate('/');
+    navigate(0);
   }
 
   return (

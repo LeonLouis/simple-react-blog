@@ -32,6 +32,7 @@ function EditBlog() {
           <textarea required id="description" rows="5" name="description" defaultValue={blogData.description}></textarea>
         </div>
         <input type="hidden" name="id" defaultValue={blogData.id}/>
+        <input type="hidden" name="favorite" defaultValue="0"/>
         <div className={classes.actions}>
           <Link className={classes.cancelBtn} to="..">Cancel</Link>
           <button className={classes.submitBtn}>Update Blog</button>
@@ -55,9 +56,10 @@ export async function action(data) {
   
   let final_data = {};
   final_data[blogData.id] = blogData;
+  final_data[blogData.id].favorite = parseInt(blogData.favorite);
   delete final_data[blogData.id].id;
 
-  await fetch('https://react-app-1ead7-default-rtdb.asia-southeast1.firebasedatabase.app/blogs.json', {
+  await fetch(`https://react-app-1ead7-default-rtdb.asia-southeast1.firebasedatabase.app/blogs.json`, {
     method: 'PATCH',
     body: JSON.stringify(final_data),
     headers: {

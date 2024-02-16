@@ -2,7 +2,6 @@ import { useContext } from 'react';
 import FavoritesContext from '../store/favorites-context';
 import BlogList from '../components/blogs/BlogList';
 
-
 function Favorites() {
   const favoriteContext = useContext(FavoritesContext);
 

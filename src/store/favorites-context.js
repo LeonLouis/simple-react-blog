@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 const FavoritesContext = createContext({
   favorites: [],
@@ -11,16 +11,51 @@ const FavoritesContext = createContext({
 export function FavoritesContextProvider(props){
   const [userFavorites, setUserFavorites] = useState([]);
 
-  function addFavoriteHandler(blog){
-    setUserFavorites((prevFavorites) => {
-      return prevFavorites.concat(blog);
+  useEffect(() => {
+    getFavorites();
+  }, []);
+
+  async function getFavorites(){
+    await fetch('https://react-app-1ead7-default-rtdb.asia-southeast1.firebasedatabase.app/blogs.json?orderBy="favorite"&equalTo=1')
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      const blogs = [];
+
+      for (const key in data){
+        const blog = {
+          id: key,
+          ...data[key]
+        };
+        blogs.push(blog);
+      }
+      setUserFavorites(blogs);
     });
   }
 
-  function removeFavoriteHandler(blogId){
-    setUserFavorites((prevFavorites) => {
-      return prevFavorites.filter(blog => blog.id !== blogId);
+  async function addFavoriteHandler(blog){
+    let blogId = blog.id;
+    delete blog.id;
+    await fetch(`https://react-app-1ead7-default-rtdb.asia-southeast1.firebasedatabase.app/blogs/${blogId}.json`, {
+      method: 'PATCH',
+      body: JSON.stringify(blog),
+      headers: {
+        'Content-Type': 'application/json'
+      }
     });
+    getFavorites();
+  }
+
+  async function removeFavoriteHandler(blogId){
+    await fetch(`https://react-app-1ead7-default-rtdb.asia-southeast1.firebasedatabase.app/blogs/${blogId}.json`, {
+      method: 'PATCH',
+      body: JSON.stringify({favorite: 0}),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    getFavorites();
   }
 
   function blogsIsFavoriteHandler(blogId){

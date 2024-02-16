@@ -22,6 +22,7 @@ function NewBlog() {
           <label htmlFor="description">Description</label>
           <textarea required id="description" rows="5" name="description"></textarea>
         </div>
+        <input type="hidden" name="favorite" defaultValue="0" />
         <div className={classes.actions}>
           <Link className={classes.cancelBtn} to="..">Cancel</Link>
           <button className={classes.submitBtn}>Add Blog</button>
@@ -36,6 +37,7 @@ export default NewBlog;
 export async function action(data) {
   const formData = await data.request.formData();
   const blogData = Object.fromEntries(formData);
+  blogData.favorite = parseInt(blogData.favorite);
   await fetch('https://react-app-1ead7-default-rtdb.asia-southeast1.firebasedatabase.app/blogs.json', {
     method: 'POST',
     body: JSON.stringify(blogData),
