@@ -38,7 +38,7 @@ export async function action(data) {
   const formData = await data.request.formData();
   const blogData = Object.fromEntries(formData);
   blogData.favorite = parseInt(blogData.favorite);
-  await fetch('https://react-app-1ead7-default-rtdb.asia-southeast1.firebasedatabase.app/blogs.json', {
+  await fetch(`${process.env.REACT_APP_FIREBASE_URL}/blogs.json`, {
     method: 'POST',
     body: JSON.stringify(blogData),
     headers: {

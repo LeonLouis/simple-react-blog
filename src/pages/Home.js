@@ -6,7 +6,7 @@ function Home() {
   const [blogData, setBlogData] = useState([]);
 
   useEffect(() => {
-    fetch('https://react-app-1ead7-default-rtdb.asia-southeast1.firebasedatabase.app/blogs.json')
+    fetch(`${process.env.REACT_APP_FIREBASE_URL}/blogs.json`)
     .then((response) => {
       return response.json();
     })

@@ -16,7 +16,7 @@ export function FavoritesContextProvider(props){
   }, []);
 
   async function getFavorites(){
-    await fetch('https://react-app-1ead7-default-rtdb.asia-southeast1.firebasedatabase.app/blogs.json?orderBy="favorite"&equalTo=1')
+    await fetch(`${process.env.REACT_APP_FIREBASE_URL}/blogs.json?orderBy="favorite"&equalTo=1`)
     .then((response) => {
       return response.json();
     })
@@ -37,7 +37,7 @@ export function FavoritesContextProvider(props){
   async function addFavoriteHandler(blog){
     let blogId = blog.id;
     delete blog.id;
-    await fetch(`https://react-app-1ead7-default-rtdb.asia-southeast1.firebasedatabase.app/blogs/${blogId}.json`, {
+    await fetch(`${process.env.REACT_APP_FIREBASE_URL}/blogs/${blogId}.json`, {
       method: 'PATCH',
       body: JSON.stringify(blog),
       headers: {
@@ -48,7 +48,7 @@ export function FavoritesContextProvider(props){
   }
 
   async function removeFavoriteHandler(blogId){
-    await fetch(`https://react-app-1ead7-default-rtdb.asia-southeast1.firebasedatabase.app/blogs/${blogId}.json`, {
+    await fetch(`${process.env.REACT_APP_FIREBASE_URL}/blogs/${blogId}.json`, {
       method: 'PATCH',
       body: JSON.stringify({favorite: 0}),
       headers: {

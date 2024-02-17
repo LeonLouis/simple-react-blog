@@ -32,7 +32,7 @@ function BlogItem({blog}) {
   }
 
   async function deleteBlogHandler() {
-    await fetch(`https://react-app-1ead7-default-rtdb.asia-southeast1.firebasedatabase.app/blogs/${blog.id}.json`, {
+    await fetch(`${process.env.REACT_APP_FIREBASE_URL}/blogs/${blog.id}.json`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'

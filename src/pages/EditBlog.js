@@ -45,7 +45,7 @@ function EditBlog() {
 export default EditBlog;
 
 export async function loader({params}) {
-  const res = await fetch(`https://react-app-1ead7-default-rtdb.asia-southeast1.firebasedatabase.app/blogs.json?orderBy="$key"&equalTo="${params.id}"`);
+  const res = await fetch(`${process.env.REACT_APP_FIREBASE_URL}/blogs.json?orderBy="$key"&equalTo="${params.id}"`);
   const resData = await res.json();
   return resData;
 }
@@ -59,7 +59,7 @@ export async function action(data) {
   final_data[blogData.id].favorite = parseInt(blogData.favorite);
   delete final_data[blogData.id].id;
 
-  await fetch(`https://react-app-1ead7-default-rtdb.asia-southeast1.firebasedatabase.app/blogs.json`, {
+  await fetch(`${process.env.REACT_APP_FIREBASE_URL}/blogs.json`, {
     method: 'PATCH',
     body: JSON.stringify(final_data),
     headers: {

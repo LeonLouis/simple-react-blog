@@ -1,0 +1,25 @@
+{
+  "blogs": {
+    "-NqlNTFiWEVpIVliR6rt": {
+      "address": "Boracay Island, Western Visayas, Philippines",
+      "description": "As I stepped onto the shores of Boracay, the very air seemed to hum with an indescribable sense of excitement and anticipation. The sky stretched out endlessly in a vibrant azure canopy, dotted with fluffy clouds lazily drifting by. The gentle whisper of the waves lapping against the powdery white sand greeted me like an old friend, instantly putting me at ease.",
+      "favorite": 0,
+      "image": "https://images.pexels.com/photos/16468797/pexels-photo-16468797/free-photo-of-a-beach-with-people-and-palm-trees.jpeg",
+      "title": "Boracay Island"
+    },
+    "-NqlZvMHeJJem7OFg1bz": {
+      "address": "El Nido, MIMAROPA, Philippines",
+      "description": "The town of El Nido bustled with a vibrant energy, as locals and tourists alike went about their day against the backdrop of towering limestone cliffs and turquoise waters. Colorful tricycles buzzed along the streets, while fishermen returned from their morning catch, their boats laden with the bounty of the sea.",
+      "favorite": 1,
+      "image": "https://images.pexels.com/photos/13874296/pexels-photo-13874296.jpeg",
+      "title": "El Nido Palawan"
+    },
+    "-NqrRSVZnCiBXUEpCT28": {
+      "address": "Moalboal, Central Visayas, Philippines",
+      "description": "Stepping onto the shores of Cebu Moalboal, I felt as though I had been transported to a realm of unparalleled beauty and serenity. The air was infused with the salty tang of the sea, mingling harmoniously with the earthy scent of tropical foliage. Towering palm trees swayed gently in the breeze, casting dappled shadows that danced across the pristine sand.",
+      "favorite": 0,
+      "image": "https://images.pexels.com/photos/2403531/pexels-photo-2403531.jpeg",
+      "title": "Cebu Moalboal"
+    }
+  }
+}

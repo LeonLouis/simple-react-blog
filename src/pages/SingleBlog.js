@@ -24,7 +24,7 @@ function SingleBlog() {
 export default SingleBlog;
 
 export async function loader({params}) {
-  const res = await fetch(`https://react-app-1ead7-default-rtdb.asia-southeast1.firebasedatabase.app/blogs.json?orderBy="$key"&equalTo="${params.id}"`);
+  const res = await fetch(`${process.env.REACT_APP_FIREBASE_URL}/blogs.json?orderBy="$key"&equalTo="${params.id}"`);
   const resData = await res.json();
   return resData;
 }
